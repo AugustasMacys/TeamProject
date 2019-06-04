@@ -28,7 +28,6 @@ public class GameOverScreen extends AbstractGameScreen implements Screen {
   private int scoreTop;
   private int scoreBottom;
   private GameType gameType;
-  private Stage stage;
 
   private Client client;
   private Server server;
@@ -43,7 +42,7 @@ public class GameOverScreen extends AbstractGameScreen implements Screen {
   public GameOverScreen(BodyConquest game, GameType gameType) {
     super(game);
     this.gameType = gameType;
-    stage = new Stage(viewport);
+    Stage stage = new Stage(viewport);
     loadAssets();
     getAssets();
     setRectangles();

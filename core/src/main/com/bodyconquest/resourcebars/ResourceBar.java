@@ -13,7 +13,6 @@ import main.com.bodyconquest.rendering.BodyConquest;
 public abstract class ResourceBar extends Actor {
 
     private float resource;
-    private Resource resourceType;
     private TextureRegion outline;
     private TextureRegion inside;
     private TextureRegion currentFrame;
@@ -21,10 +20,6 @@ public abstract class ResourceBar extends Actor {
      * The Walk animation.
      */
     protected Animation<TextureRegion> walkAnimation;
-    /**
-     * The State time.
-     */
-    float stateTime;
     private float elapsedTime;
     private int insideY;
     private String insideTexturePath;
@@ -33,7 +28,6 @@ public abstract class ResourceBar extends Actor {
      * Instantiates a new Resource bar.
      */
     public ResourceBar(){
-//        walkAnimation = AnimationWrapper.getSpriteSheet(4, 1, 0.2f, getInsideTexturePath());
     }
 
     /**
@@ -60,7 +54,7 @@ public abstract class ResourceBar extends Actor {
      * @param rt the rt
      */
     protected void setResourceType(Resource rt) {
-        this.resourceType = rt;
+        Resource resourceType = rt;
     }
 
 
@@ -131,9 +125,10 @@ public abstract class ResourceBar extends Actor {
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
-
+        // Get current frame of animation for the current stateTime
         this.setWidth(BodyConquest.V_WIDTH / 20.0f);
         this.setHeight(BodyConquest.V_HEIGHT - 50);currentFrame = getInside();
+
         currentFrame = walkAnimation.getKeyFrame(elapsedTime, true);
         this.setY(getInsideY()+50);
         batch.draw(currentFrame, getX(), getY(), getOriginX(), getOriginY(), getWidth(), getHeight(), getScaleX(), getScaleY(), getRotation());
@@ -141,8 +136,6 @@ public abstract class ResourceBar extends Actor {
         currentFrame = getOutline();
         this.setY(50);
         batch.draw(currentFrame, getX(), getY(), getOriginX(), getOriginY(), getWidth(), getHeight(), getScaleX(), getScaleY(), getRotation());
-
-
     }
 
     /**

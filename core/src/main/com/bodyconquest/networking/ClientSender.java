@@ -9,10 +9,10 @@ import java.net.SocketException;
  * Client thread responsible for sending messages to the server
  */
 public class ClientSender extends Thread {
-  /**
-   * The Socket.
-   */
-  public DatagramSocket socket;
+    /**
+     * The Socket.
+     */
+    public DatagramSocket socket;
   private ClientReceiver clientReceiver;
 
   /**
@@ -41,10 +41,10 @@ public class ClientSender extends Thread {
     }
   }
 
-  /**
-   * Stop running.
-   */
-  public void stopRunning(){
-    socket.close();
-  }
+    /**
+     * Stop running.
+     */
+    public void stopRunning(){
+        socket.close();
+    }
 }

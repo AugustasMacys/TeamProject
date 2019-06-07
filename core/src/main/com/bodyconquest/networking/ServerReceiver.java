@@ -12,26 +12,26 @@ import java.util.concurrent.LinkedBlockingQueue;
  * Server thread that is responsible for receiving messages from all connected clients
  */
 public class ServerReceiver extends Thread {
-  /**
-   * The Socket.
-   */
-  public DatagramSocket socket;
-  /**
-   * The Server sender.
-   */
-  public ServerSender serverSender;
-  /**
-   * The Received messages.
-   */
-  public LinkedBlockingQueue<String> receivedMessages;
-  /**
-   * The Type.
-   */
-  public GameType type;
-  /**
-   * The Number of clients.
-   */
-  public int numberOfClients;
+    /**
+     * The Socket.
+     */
+    public DatagramSocket socket;
+    /**
+     * The Server sender.
+     */
+    public ServerSender serverSender;
+    /**
+     * The Received messages.
+     */
+    public LinkedBlockingQueue<String> receivedMessages;
+    /**
+     * The Type.
+     */
+    public GameType type;
+    /**
+     * The Number of clients.
+     */
+    public int numberOfClients;
   private boolean run;
 
   /**
@@ -74,9 +74,9 @@ public class ServerReceiver extends Thread {
     }
   }
 
-  /**
-   * A method that deals with receiving and storing client ID and waiting for the game to start
-   */
+    /**
+     * A method that deals with receiving and storing client ID and waiting for the game to start
+     */
   public void gameSetup() {
     while (run) {
       try {
@@ -119,11 +119,11 @@ public class ServerReceiver extends Thread {
     }
   }
 
-  /**
-   * Stop running.
-   */
-  public void stopRunning(){
-    run = false;
-    socket.close();
-  }
+    /**
+     * Stop running.
+     */
+    public void stopRunning(){
+        run = false;
+        socket.close();
+    }
 }

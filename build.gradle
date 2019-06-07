@@ -81,6 +81,9 @@ project(":core") {
         compile "org.mini2Dx:universal-tween-engine:6.3.3"
         compile group: 'com.cedarsoftware', name: 'json-io', version: '2.2.29'
         compile 'org.postgresql:postgresql:42.0.1-SNAPSHOT'
+        // https://mvnrepository.com/artifact/postgresql/postgresql
+        //compile group: 'postgresql', name: 'postgresql', version: '9.0-801.jdbc4'
+
 
     }
 }

@@ -37,31 +37,31 @@ public class Server {
     serverLogic.start();
   }
 
-  /**
-   * Gets server sender.
-   *
-   * @return the server sender
-   */
-  public ServerSender getServerSender() {
-    return serverSender;
-  }
+    /**
+     * Gets server sender.
+     *
+     * @return the server sender
+     */
+    public ServerSender getServerSender() {
+        return serverSender;
+    }
 
-  /**
-   * Start encounter logic.
-   *
-   * @param encounterState the encounter state
-   */
-  public void startEncounterLogic(EncounterState encounterState) {
-    serverLogic.setEncounterLogic(encounterState);
-  }
+    /**
+     * Start encounter logic.
+     *
+     * @param encounterState the encounter state
+     */
+    public void startEncounterLogic(EncounterState encounterState) {
+        serverLogic.setEncounterLogic(encounterState);
+    }
 
-  /**
-   * Main.
-   *
-   * @param args the args
-   * @throws Exception the exception
-   */
-  public static void main(String args[]) throws Exception {
+    /**
+     * Main.
+     *
+     * @param args the args
+     * @throws Exception the exception
+     */
+    public static void main(String[] args) throws Exception {
     Ping ping = new Ping();
     ping.start();
 
@@ -73,49 +73,50 @@ public class Server {
 
     serverSender.sendMessage(
         "This is a message from the server sent just after the game has started");
-  }
+    }
 
-  /**
-   * Close everything.
-   */
-  public void closeEverything() {
-    if (serverSender != null) serverSender.stopRunning();
-    if (serverReceiver != null) serverReceiver.stopRunning();
-    if (serverLogic != null) serverLogic.stopRunning();
-    if (ping != null) ping.stopRunning();
+    /**
+     * Close everything.
+     */
+    public void closeEverything() {
+        if (serverSender != null) serverSender.stopRunning();
+        if (serverReceiver != null) serverReceiver.stopRunning();
+        if (serverLogic != null) serverLogic.stopRunning();
+        if (ping != null) ping.stopRunning();
 
-    gameEnded = true;
-  }
+        gameEnded = true;
+    }
 
-  /**
-   * Is game ended boolean.
-   *
-   * @return the boolean
-   */
-  public boolean isGameEnded() {
-    return gameEnded;
-  }
+    /**
+     * Is game ended boolean.
+     *
+     * @return the boolean
+     */
+    public boolean isGameEnded() {
+        return gameEnded;
+    }
 
-  /**
-   * Start race selection logic.
-   *
-   * @param game the game
-   */
-  public void startRaceSelectionLogic(Game game) {
-    serverLogic.setRaceSelectionLogic(game);
-  }
+    /**
+     * Start race selection logic.
+     *
+     * @param game the game
+     */
+    public void startRaceSelectionLogic(Game game) {
+        serverLogic.setRaceSelectionLogic(game);
+    }
 
-  /**
-   * Start body logic.
-   */
-  public void startBodyLogic() { serverLogic.setBodyLogic(); }
+    /**
+     * Start body logic.
+     */
+    public void startBodyLogic() { serverLogic.setBodyLogic();
+    }
 
-  /**
-   * Start database logic.
-   *
-   * @param game the game
-   */
-  public void startDatabaseLogic(Game game) {
+    /**
+     * Start database logic.
+     *
+     * @param game the game
+     */
+    public void startDatabaseLogic(Game game) {
         serverLogic.setDatabaseLogic(game);
     }
 

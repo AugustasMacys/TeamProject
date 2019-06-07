@@ -13,12 +13,12 @@ public class Ping extends Thread {
   private MulticastSocket socket;
   private boolean run;
 
-  /**
-   * Instantiates a new Ping.
-   */
-  public Ping(){
-    run = true;
-  }
+    /**
+     * Instantiates a new Ping.
+     */
+    public Ping(){
+        run = true;
+    }
 
   public void run() {
     try {
@@ -51,11 +51,11 @@ public class Ping extends Thread {
     }
   }
 
-  /**
-   * Stop running.
-   */
-  public void stopRunning() {
-    run = false;
-    socket.close();
-  }
+    /**
+     * Stop running.
+     */
+    public void stopRunning() {
+        run = false;
+        socket.close();
+    }
 }

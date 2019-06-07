@@ -13,9 +13,9 @@ import java.util.*;
  */
 public class DatabaseManager {
 
-    private String url = "jdbc:postgresql://achievementsdb.c1dv9wmfmc0j.us-east-2.rds.amazonaws.com:5432/cauldronDB";
-    private String user = "cauldron_admin";
-    private String password = "Cauldr()n";
+    private String url = "jdbc:postgresql://manny.db.elephantsql.com:5432/yfajkkbk";
+    private String user = "yfajkkbk";
+    private String password = "OEPc2uvT8dDbxD0Ax3BKLomp4BJyvoHR";
     private String driver = "org.postgresql.Driver";
     private Connection dbConn;
 
@@ -65,9 +65,10 @@ public class DatabaseManager {
                 String insertUserString = "INSERT INTO Users (username, password) VALUES " +
                         "(?, ?)";
                 insertUser = dbConn.prepareStatement(insertUserString);
+                System.out.println(password);
                 insertUser.setString(1, username);
                 insertUser.setString(2, password);
-
+                System.out.println(insertUser);
                 insertUser.executeUpdate();
                 return true;
             } catch (SQLException e) {

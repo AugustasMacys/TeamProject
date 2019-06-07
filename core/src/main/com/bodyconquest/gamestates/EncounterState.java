@@ -518,7 +518,7 @@ public class EncounterState {
 
       if (game.getGameType() == GameType.SINGLE_PLAYER) {
           singleplayerAI.stopRunning();
-          multiplayerAI.stopRunning();
+//          multiplayerAI.stopRunning();
       } else {
           multiplayerAI.stopRunning();
       }

@@ -174,6 +174,7 @@ public class AudioPlayer {
             currentMusic.setVolume(MUSIC_VOLUME * 0.3f);
             muted = false;
         }
+        System.out.println(currentMusic);
         currentMusic.setLooping(loop);
         currentMusic.play();
     }
@@ -240,15 +241,11 @@ public class AudioPlayer {
     /**
      * The constant MUSIC_FADE_STEP.
      */
-    public final static float MUSIC_FADE_STEP = 0.001f;
+    public final static float MUSIC_FADE_STEP = 0.02f;
 
-    /**
-     * The constant MUSIC_FADE_STEP_UP.
-     */
-    public final static float MUSIC_FADE_STEP_UP = 0.0008f;
 
     /**
      * The constant MUSIC_FADE_RATE.
      */
-    public final static float MUSIC_FADE_RATE = 0.005f;
+    public final static float MUSIC_FADE_RATE = 0.05f;
 }

@@ -24,8 +24,8 @@ import main.com.bodyconquest.constants.*;
 import main.com.bodyconquest.entities.BasicObject;
 import main.com.bodyconquest.entities.Map;
 import main.com.bodyconquest.entities.Troops.Bacteria;
-import main.com.bodyconquest.entities.Troops.Virus;
 import main.com.bodyconquest.entities.Troops.Fungus;
+import main.com.bodyconquest.entities.Troops.Virus;
 import main.com.bodyconquest.entities.ViewObject;
 import main.com.bodyconquest.game_logic.Communicator;
 import main.com.bodyconquest.handlers.AnimationWrapper;
@@ -256,15 +256,16 @@ public class EncounterScreen implements Screen {
     healthBottomBaseBefore = healthBottomBase;
     healthTopBaseBefore = healthTopBase;
 
-    if ((healthBottomBase < 35 && playerType == PlayerType.PLAYER_BOTTOM)
-        || (healthTopBase < 35 && playerType == PlayerType.PLAYER_TOP) && !played) {
-      // played = true;
+    if (((healthBottomBase < 35 && playerType == PlayerType.PLAYER_BOTTOM)
+        || (healthTopBase < 35 && playerType == PlayerType.PLAYER_TOP)) && !played) {
+      System.out.println("goes to initial");
       Timer.schedule(
           new Timer.Task() {
             @Override
             public void run() {
               if (game.audioPlayer.getMusicVolume() >= 0.08f) {
                 if (game.audioPlayer.getMusicVolume() < 0.10f) {
+                  System.out.println("change music volume 0");
                   played = true;
                   changeMusic = true;
                   game.audioPlayer.changeMusicVolume(0.0f);
@@ -281,27 +282,11 @@ public class EncounterScreen implements Screen {
     }
 
     if (played && changeMusic) {
+      game.audioPlayer.changeMusicVolume(1.0f);
       game.audioPlayer.playMusicLoop("heartbeat");
+      System.out.println("plays heartbeat loop");
       finished = true;
       changeMusic = false;
-    }
-
-    if (finished) {
-
-      Timer.schedule(
-          new Timer.Task() {
-            @Override
-            public void run() {
-              if (game.audioPlayer.getMusicVolume() <= 1.0f) {
-                game.audioPlayer.changeMusicVolume(
-                    game.audioPlayer.getMusicVolume() + game.audioPlayer.MUSIC_FADE_STEP_UP);
-              }
-
-              this.cancel();
-            }
-          },
-          0f,
-          MUSIC_FADE_RATE);
     }
 
     timeAlive += delta;
